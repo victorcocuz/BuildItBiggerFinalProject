@@ -1,9 +1,11 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.e("TAG", "The interstitial wasn't loaded yet.");
             Toast.makeText(this, "The interstitial wasn't loaded yet.", Toast.LENGTH_SHORT).show();
-            Intent myIntent = new Intent(getApplicationContext(), JokeActivity.class);
-            myIntent.putExtra(INTENT_JOKE_KEY, jokesClass.getJoke());
-            startActivity(myIntent);
+            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "whatever"));
         }
     }
 

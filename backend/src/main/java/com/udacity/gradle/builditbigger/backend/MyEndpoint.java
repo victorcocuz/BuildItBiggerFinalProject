@@ -22,7 +22,7 @@ public class MyEndpoint {
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
-        response.setData("THIS MESSAGE SHOULD BLOODY SHOW UP INSTEAD OF HI!!!!!!!! " + name);
+        response.setData("Hi, " + name);
 
         return response;
     }

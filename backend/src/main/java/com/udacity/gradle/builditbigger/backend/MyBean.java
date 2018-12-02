@@ -7,6 +7,10 @@ public class MyBean {
 
     private String myData;
 
+    private JokesClass jokesClass;
+
+    public MyBean() {jokesClass = new JokesClass(); }
+
     public String getData() {
         return jokesClass.getJoke();
     }
@@ -15,9 +19,4 @@ public class MyBean {
         myData = jokesClass.getJoke();
     }
 
-    private JokesClass jokesClass;
-
-    public MyBean() {jokesClass = new JokesClass(); }
-
-    public String getJoke() {return jokesClass.getJoke(); }
 }

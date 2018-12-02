@@ -27,6 +27,9 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     private static MyApi myApiService = null;
     private Context context;
     private static final String INTENT_JOKE_KEY = "jokeKey";
+//    private Callback mCallback;
+
+    JokesClass jokesClass = new JokesClass();
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -51,15 +54,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         context = params[0].first;
         String name = params[0].second;
 
-//        JokesClass jokesClass = new JokesClass();
-
-//        public void tellJoke(View view) {
-
-//            Toast.makeText(context, "derp" + jokesClass.getJoke(), Toast.LENGTH_SHORT).show();
-//        }
-
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.sayHi(jokesClass.getJoke()).execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -67,10 +63,20 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+//        if(result != null){
+//            mCallback.onFinished(result);
+//        }
+
         Intent myIntent = new Intent(context, JokeActivity.class);
-//        myIntent.putExtra(INTENT_JOKE_KEY, jokesClass.getJoke());
         myIntent.putExtra(INTENT_JOKE_KEY, result);
         context.startActivity(myIntent);
     }
+
+//    public interface Callback{
+//        void onFinished(String result);
+//    }
+//
+//    public EndpointsAsyncTask(Callback callback){
+//        mCallback = callback;
+//    }
 }

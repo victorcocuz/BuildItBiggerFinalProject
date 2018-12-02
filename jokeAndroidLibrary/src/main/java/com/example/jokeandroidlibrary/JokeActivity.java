@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-//import com.example.jokejavalibrary.JokesClass;
-
 public class JokeActivity extends AppCompatActivity {
 
     private static final String INTENT_JOKE_KEY = "jokeKey";
@@ -22,8 +20,6 @@ public class JokeActivity extends AppCompatActivity {
             joke = getIntent().getExtras().getString(INTENT_JOKE_KEY);
             jokeTextView.setText(joke);
         }
-
-//        JokesClass jokesClass = new JokesClass();
 
     }
 }
