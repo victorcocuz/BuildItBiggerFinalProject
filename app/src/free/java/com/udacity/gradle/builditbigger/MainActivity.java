@@ -18,7 +18,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdRequest;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.Callback {
 
     private static final String INTENT_JOKE_KEY = "jokeKey";
     private static InterstitialAd mInterstitialAd;
@@ -73,8 +73,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.e("TAG", "The interstitial wasn't loaded yet.");
             Toast.makeText(this, "The interstitial wasn't loaded yet.", Toast.LENGTH_SHORT).show();
-            new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "whatever"));
+            new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "whatever"));
         }
+    }
+
+    @Override
+    public void onFinished(String result) {
+        Intent myIntent = new Intent(this, JokeActivity.class);
+        myIntent.putExtra(INTENT_JOKE_KEY, result);
+        startActivity(myIntent);
     }
 
 }

@@ -229,5 +229,9 @@
     <orderEntry type="module" module-name="jokeAndroidLibrary" />
     <orderEntry type="module" module-name="jokeJavaLibrary" />
     <orderEntry type="module" module-name="jokeAndroidLibrary" />
+    <orderEntry type="module" module-name="jokeJavaLibrary" />
+    <orderEntry type="module" module-name="jokeAndroidLibrary" />
+    <orderEntry type="module" module-name="jokeJavaLibrary" />
+    <orderEntry type="module" module-name="jokeAndroidLibrary" />
   </component>
 </module>

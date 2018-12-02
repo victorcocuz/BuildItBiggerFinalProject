@@ -27,7 +27,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     private static MyApi myApiService = null;
     private Context context;
     private static final String INTENT_JOKE_KEY = "jokeKey";
-//    private Callback mCallback;
+    private Callback mCallback;
 
     JokesClass jokesClass = new JokesClass();
 
@@ -63,20 +63,16 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-//        if(result != null){
-//            mCallback.onFinished(result);
-//        }
-
-        Intent myIntent = new Intent(context, JokeActivity.class);
-        myIntent.putExtra(INTENT_JOKE_KEY, result);
-        context.startActivity(myIntent);
+        if(result != null){
+            mCallback.onFinished(result);
+        }
     }
 
-//    public interface Callback{
-//        void onFinished(String result);
-//    }
-//
-//    public EndpointsAsyncTask(Callback callback){
-//        mCallback = callback;
-//    }
+    public interface Callback{
+        void onFinished(String result);
+    }
+
+    public EndpointsAsyncTask(Callback callback){
+        mCallback = callback;
+    }
 }
