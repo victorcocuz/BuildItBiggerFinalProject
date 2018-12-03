@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
 
     public void launchAndroidLibraryActivity(View view) {
-        new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "whatever"));
+        new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "test"));
     }
 
     @Override

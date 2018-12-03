@@ -7,16 +7,16 @@ public class MyBean {
 
     private String myData;
 
-    private JokesClass jokesClass;
+//    private JokesClass jokesClass;
 
-    public MyBean() {jokesClass = new JokesClass(); }
+//    public MyBean() {jokesClass = new JokesClass(); }
 
     public String getData() {
-        return jokesClass.getJoke();
+        return myData;
     }
 
     public void setData(String data) {
-        myData = jokesClass.getJoke();
+        myData = data;
     }
 
 }
