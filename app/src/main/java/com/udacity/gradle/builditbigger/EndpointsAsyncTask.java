@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import java.io.IOException;
  * Created by Victor on 12/2/2018.
  ******/
 class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+    private static final String LOG_TAG = EndpointsAsyncTask.class.getSimpleName();
     private static MyApi myApiService = null;
     private Context context;
     private static final String INTENT_JOKE_KEY = "jokeKey";
@@ -57,7 +59,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         try {
             return myApiService.fetchJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.e(LOG_TAG, "Could not return joke ", e);
+            return null;
         }
     }
 
