@@ -32,6 +32,7 @@ public class FinalAsyncTaskTest extends ApplicationTestCase<Application> {
             signal.await(10, TimeUnit.SECONDS);
             joke = testJokes.get();
         } catch (Exception e) {
+            joke = "";
             Log.e(LOG_TAG, "could not retrieve joke", e);
         }
         assertNotNull(joke);
